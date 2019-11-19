@@ -58,7 +58,8 @@ function getTickerHistData(tickerData, period, requestType, chartsDivNum) {
             $("#tickerChartHeader" + chartsDivRef).html(tickerData);
 
             if (requestType != "periodSwitch") {
-                addPeriodButtons(chartsDivRef);
+                // addPeriodButtons(chartsDivRef);
+                addPeriodButtons(chartsDivRef, tickerData);
             }
 
             var ctx = document.getElementById('myChart' + chartsDivRef).getContext('2d');
@@ -71,9 +72,9 @@ function getTickerHistData(tickerData, period, requestType, chartsDivNum) {
                 dayDate.push(moment((chartResponse.prices[i].date) * 1000).format("MMM Do YY"));
             }
 
-            console.log("priceResults: " + priceResults);
-            console.log("volResults: " + volResults);
-            console.log("dayDate: " + dayDate);
+            // console.log("priceResults: " + priceResults);
+            // console.log("volResults: " + volResults);
+            // console.log("dayDate: " + dayDate);
 
             var mixedChart = new Chart(ctx, {
                 type: 'bar',

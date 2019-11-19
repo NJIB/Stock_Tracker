@@ -158,8 +158,9 @@
 
     // When chart time-period button is clicked...
     $(document.body).on("click", ".periodBtn", function () {
-      console.log("tickerData: " + tickerData);
       var btnData = $(this).attr("data-name");
+      tickerData = $(this).attr("data-ticker");
+      console.log("tickerData: " + tickerData);
       requestType = $(this).attr("data-type");
       console.log("Button type: " + requestType);
       chartsDivNum = $(this).attr("data-chartsdivref");
