@@ -24,7 +24,7 @@ function getTickerData(tickerData) {
             chartResults = chartResponse.chart.result[0].meta.symbol;
             console.log("chartResults: " + chartResults);
 
-            // Identifying output area for GIFs (used to distinguish between the main area and the favorites area)
+            // Identifying output areas (used to distinguish between the main area and the favorites area)
             tickerDestDiv = "tickerOutput";
             // Upload GIF and select details to the DOM
             populateTickerDiv(chartResults, tickerDestDiv);

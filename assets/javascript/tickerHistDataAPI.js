@@ -57,14 +57,15 @@ function getTickerHistData(tickerData, period, requestType, chartsDivNum) {
 
             $("#tickerChartHeader" + chartsDivRef).html(tickerData);
 
+            // Adding Delete Button
+            addDeleteTickerButton(chartsDivRef);
+
             if (requestType != "periodSwitch") {
                 // addPeriodButtons(chartsDivRef);
                 addPeriodButtons(chartsDivRef, tickerData);
             }
-
             var ctx = document.getElementById('myChart' + chartsDivRef).getContext('2d');
             console.log("ctx: " + ctx);
-
             for (var i = (chartResponse.prices.length - 1); i > 0; i--) {
                 priceResults.push(chartResponse.prices[i].close);
                 // priceResults.push(chartResponse.prices[i].close.toPrecision(4));

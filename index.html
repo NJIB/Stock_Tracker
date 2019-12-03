@@ -92,28 +92,28 @@
         </div>
       </div>
       <div class="row" id="graphRow2">
-          <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="row" id="tickerChartHeader2-1"></div>
-            <div class="row" id="periodButtons2-1"></div>
-            <div class="row" id="tickerChart2-1">
-              <canvas id="myChart1-1" width="200" height="200"></canvas>
-            </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="row" id="tickerChartHeader2-1"></div>
+          <div class="row" id="periodButtons2-1"></div>
+          <div class="row" id="tickerChart2-1">
+            <canvas id="myChart1-1" width="200" height="200"></canvas>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="row" id="tickerChartHeader2-2"></div>
-            <div class="row" id="periodButtons2-2"></div>
-            <div class="row" id="tickerChart2-2">
-              <canvas id="myChart1-2" width="200" height="200"></canvas>
-            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="row" id="tickerChartHeader2-2"></div>
+          <div class="row" id="periodButtons2-2"></div>
+          <div class="row" id="tickerChart2-2">
+            <canvas id="myChart1-2" width="200" height="200"></canvas>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="row" id="tickerChartHeader2-3"></div>
-            <div class="row" id="periodButtons2-3"></div>
-            <div class="row" id="tickerChart2-3">
-              <canvas id="myChart1-3" width="200" height="200"></canvas>
-            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="row" id="tickerChartHeader2-3"></div>
+          <div class="row" id="periodButtons2-3"></div>
+          <div class="row" id="tickerChart2-3">
+            <canvas id="myChart1-3" width="200" height="200"></canvas>
           </div>
-        </div>  
+        </div>
+      </div>
     </div>
   </div>
 
@@ -125,6 +125,8 @@
   <script src="assets/javascript/populateMarketDiv.js"></script>
   <script src="assets/javascript/populateTickerDiv.js"></script>
   <script src="assets/javascript/addPeriodButtons.js"></script>
+  <script src="assets/javascript/addDeleteTickerButton.js"></script>
+  <script src="assets/javascript/clearTickerDiv.js"></script>
 
 
   <script type="text/javascript"></script>
@@ -153,7 +155,7 @@
         getMarketData();
       }
 
-      getTickerHistData(tickerData, 1, requestType,);
+      getTickerHistData(tickerData, 1, requestType);
     });
 
     // When chart time-period button is clicked...
@@ -167,6 +169,14 @@
       console.log("chartsDivNum (on index.html): " + chartsDivNum);
       getTickerHistData(tickerData, btnData, requestType, chartsDivNum);
     });
+
+    // When chart delete button is clicked...
+    $(document.body).on("click", ".deleteBtn", function () {
+      chartsDivNum = $(this).attr("data-chartsdivref");
+      console.log("chartsDivNum: " + chartsDivNum);
+      clearTickerDiv(chartsDivNum);
+    });
+
 
   </script>
 
